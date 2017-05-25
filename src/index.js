@@ -2,8 +2,9 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Route, Router, hashHistory } from 'react-router';
 import { Provider } from 'react-redux';
-import { compose, createStore, combineReducers } from 'redux';
+import { compose, createStore, combineReducers, applyMiddleware } from 'redux';
 import { syncHistoryWithStore, routerReducer } from 'react-router-redux';
+import promiseMiddleware from 'redux-promise';
 
 import ApplicationContainer from './containers/application';
 import reducers from './reducers';
@@ -13,6 +14,7 @@ import Style from './stylesheets/main.scss';
 
 const el = document.getElementById('app');
 const store = createStore(combineReducers({ ...reducers, routing: routerReducer }), compose(
+  applyMiddleware(promiseMiddleware),
   window.devToolsExtension ? window.devToolsExtension() : f => f
 ));
 const history = syncHistoryWithStore(hashHistory, store);

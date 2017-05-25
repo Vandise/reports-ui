@@ -1,6 +1,7 @@
 import { createAction } from 'redux-actions';
-import Server       from '../util/server';
-import * as Cookie  from '../util/cookie';
+import Server from '../util/server';
+import Auth from '../util/googleAuth';
+import * as Cookie from '../util/cookie';
 
 export const LOGIN_ATTEMPT = createAction(
   'LOGIN', (email, token) => {
@@ -11,9 +12,18 @@ export const LOGIN_ATTEMPT = createAction(
       return resp.data.user;
     }).fail(() => {
       Cookie.logout();
+      Auth.logout();
       return {
         error: 'No account found for that email.'
       };
     });
+  }
+);
+
+export const LOGOUT = createAction(
+  'LOGOUT', () => {
+    Cookie.logout();
+    Auth.logout();
+    return true;
   }
 );

@@ -2,6 +2,7 @@ import { handleActions } from 'redux-actions';
 
 const initialState = {
   isLoggedIn: false,
+  loginError: null,
   currentUser: {},
 };
 
@@ -23,5 +24,13 @@ export default handleActions({
       };
     }
     return state;
+  },
+  LOGOUT: (state) => {
+    return {
+      ...state,
+      isLoggedIn: false,
+      loginError: null,
+      currentUser: {}
+    };
   },
 }, initialState);
