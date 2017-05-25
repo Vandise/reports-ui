@@ -6,3 +6,7 @@ import qXhr           from 'q-xhr';
 export const login = (email, token) => {
   return Q.xhr.post(`${API_ROOT}/login`, { email, token });
 };
+
+export const logout = () => {
+  return Q.xhr.post(`${API_ROOT}/logout`);
+};

@@ -6,6 +6,7 @@ import { compose, createStore, combineReducers, applyMiddleware } from 'redux';
 import { syncHistoryWithStore, routerReducer } from 'react-router-redux';
 import promiseMiddleware from 'redux-promise';
 
+import Pages from './pages';
 import ApplicationContainer from './containers/application';
 import reducers from './reducers';
 
@@ -25,7 +26,7 @@ const routes = (
       <Route component={ApplicationContainer}>
         <Route
           name='dashboard'
-          component={() => console.log('logged in')}
+          component={Pages.DashboardPage}
           path='/'
         />
       </Route>

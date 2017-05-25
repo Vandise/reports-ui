@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import LoggedOutPage from '../pages/loggedOutPage';
+import AuthorizedContainer from '../containers/authorized';
 
 const mapDispatchToProps = {};
 const mapStateToProps = state => ({
@@ -11,7 +12,7 @@ const mapStateToProps = state => ({
 export default connect(mapStateToProps, mapDispatchToProps)(({ children, isLoggedIn }) => {
   return (
     <div className='application-container'>
-      { isLoggedIn ? children : <LoggedOutPage /> }
+      { isLoggedIn ? <AuthorizedContainer children={children} /> : <LoggedOutPage /> }
     </div>
   );
 });

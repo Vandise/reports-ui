@@ -22,8 +22,9 @@ export const LOGIN_ATTEMPT = createAction(
 
 export const LOGOUT = createAction(
   'LOGOUT', () => {
-    Cookie.logout();
     Auth.logout();
-    return true;
+    return Server.authentication.logout().then(() => {
+      Cookie.logout();
+    });
   }
 );
