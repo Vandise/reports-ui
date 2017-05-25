@@ -29,7 +29,6 @@ export function getCurrentUser() {
 }
 
 export function login(user) {
-  console.log(getAccessToken(), global.document);
   if (getAccessToken() && global.document) {
     global.document.cookie = "login=true";
     window.localStorage.setItem("user", JSON.stringify(user));
