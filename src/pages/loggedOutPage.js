@@ -1,7 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import Auth from 'Utilities/googleAuth';
-import { API_ROOT } from 'Src/constants';
 import { LOGIN_ATTEMPT } from 'Actions/authentication';
 
 class LoggedOutPage extends React.Component {

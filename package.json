@@ -6,7 +6,7 @@
   "scripts": {
     "build": "webpack --config webpack.production.config.js",
     "test": "mocha --require ignore-styles --opts spec/mocha.opts ${FILE:-spec}",
-    "start": "node server.js",
+    "start": "NODE_ENV=development node server.js",
     "lint": "eslint ${FILE:-src spec} && echo '\\033[0;32mAll Good\\033[0m' || true",
     "cover": "nyc --require babel-core/register -a npm test"
   },

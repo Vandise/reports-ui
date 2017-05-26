@@ -2,6 +2,10 @@ var path    = require('path');
 var webpack = require('webpack');
 var CopyWebpackPlugin = require('copy-webpack-plugin');
 
+function applicationSettings() {
+  return path.resolve(__dirname, 'src/config/'+process.env.NODE_ENV+'.js');
+}
+
 module.exports = {
   entry: [
     "webpack-dev-server/client?http://0.0.0.0:9090",
@@ -34,7 +38,8 @@ module.exports = {
       Reducers: path.resolve(__dirname, 'src/reducers/'),
       Utilities: path.resolve(__dirname, 'src/util/'),
       Styles: path.resolve(__dirname, 'src/stylesheets/'),
-      Src: path.resolve(__dirname, 'src/')
+      Src: path.resolve(__dirname, 'src/'),
+      Config: applicationSettings()
     }
   },
   module: {
