@@ -1,14 +1,15 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import Auth from '../util/googleAuth';
-import { API_ROOT } from '../constants';
-import { LOGIN_ATTEMPT } from '../actions/authentication';
+import Auth from 'Utilities/googleAuth';
+import { API_ROOT } from 'Src/constants';
+import { LOGIN_ATTEMPT } from 'Actions/authentication';
 
 class LoggedOutPage extends React.Component {
 
   onGoogleSignIn(googleUser) {
     let profile = googleUser.getBasicProfile();
     let token = googleUser.getAuthResponse().id_token;
+    console.log(googleUser, googleUser.getHostedDomain());
     this.props.login(profile.getEmail(), token);
   }
 

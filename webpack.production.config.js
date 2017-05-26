@@ -32,7 +32,16 @@ module.exports = {
     new webpack.optimize.UglifyJsPlugin(),
   ],
   resolve: {
-    extensions: ['', '.js', '.jsx', '.scss']
+    extensions: ['', '.js', '.jsx', '.scss'],
+    alias: {
+      Actions: path.resolve(__dirname, 'src/actions/'),
+      Containers: path.resolve(__dirname, 'src/containers/'),
+      Pages: path.resolve(__dirname, 'src/pages/'),
+      Reducers: path.resolve(__dirname, 'src/reducers/'),
+      Utilities: path.resolve(__dirname, 'src/util/'),
+      Styles: path.resolve(__dirname, 'src/stylesheets/'),
+      Src: path.resolve(__dirname, 'src/')
+    }
   },
   module: {
     loaders: [

@@ -1,12 +1,10 @@
 import loadExternal from "./getExternalGlobal";
 
-let gapiPromise = loadExternal("https://apis.google.com/js/platform.js", "gapi");
+const gapiPromise = loadExternal("https://apis.google.com/js/platform.js", "gapi");
 
 gapiPromise.then((gapi) => {
   gapi.load("auth2", () => {
-    gapi.auth2.init({
-      hosted_domain: undefined
-    });
+    gapi.auth2.init({});
   });
 });
 
@@ -19,7 +17,7 @@ const auth = {
 
   logout: () => {
     gapiPromise.then((gapi) => {
-      var auth2 = gapi.auth2.getAuthInstance();
+      const auth2 = gapi.auth2.getAuthInstance();
       auth2.signOut();
     });
   }

@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { LOGOUT } from '../actions/authentication';
+import { LOGOUT } from 'Actions/authentication';
 
 const mapStateToProps = (state) => ({
   currentUser: state.authentication.currentUser,

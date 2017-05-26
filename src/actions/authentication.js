@@ -1,7 +1,7 @@
 import { createAction } from 'redux-actions';
-import Server from '../util/server';
-import Auth from '../util/googleAuth';
-import * as Cookie from '../util/cookie';
+import Server from 'Utilities/server';
+import Auth from 'Utilities/googleAuth';
+import * as Cookie from 'Utilities/cookie';
 
 export const LOGIN_ATTEMPT = createAction(
   'LOGIN', (email, token) => {

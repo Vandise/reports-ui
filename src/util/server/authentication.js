@@ -1,4 +1,4 @@
-import { API_ROOT }   from "../../constants";
+import { API_ROOT }   from "Src/constants";
 import Q              from "q";
 // eslint-disable-next-line no-unused-vars
 import qXhr           from 'q-xhr';

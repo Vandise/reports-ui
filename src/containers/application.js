@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import LoggedOutPage from '../pages/loggedOutPage';
-import AuthorizedContainer from '../containers/authorized';
+import LoggedOutPage from 'Pages/loggedOutPage';
+import AuthorizedContainer from 'Containers/authorized';
 
 const mapDispatchToProps = {};
 const mapStateToProps = state => ({
